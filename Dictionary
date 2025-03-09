@@ -1,0 +1,36 @@
+#Create a Dictionary with at least 5 key value pairs of the Student ID and Name 
+students = {
+    101: "latha",
+    102: "Sitha",
+    103: "Laxmi",
+    104: "githa",
+    105: "mahi"
+}
+print(students)
+
+#Adding the values in dictionary 
+students[106]='Arthi'
+print(students)
+
+#Updating the values in dictionary 
+students[101]="sowmya"
+print(students)
+
+#Accessing the value in dictionary 
+print(students[101])
+
+#Create a nested loop dictionary 
+students2 = {
+    101: {"name": "sowmya", "age": 20, "marks": 95},
+    102: {"name": "sitha", "age": 19, "marks": 98},
+    103: {"name": "Mahi", "age": 21, "marks": 88},
+}
+print("Nested Dictionary:",students2)
+
+#Access the values of nested loop dictionary 
+print("101:",students2[101])
+#Print the keys present in a particular dictionary 
+print("keys :",students.keys())
+#Delete a value from a dictionary 
+del students[101]
+print(students)
