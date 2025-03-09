@@ -1,0 +1,83 @@
+#1. Different ways creating a string 
+str1="Nice to meet you"
+str2='Guys'
+str3="""Multiline 
+String"""
+str4='''Another 
+mutliline String'''
+print(str1,str2,str3,str4)
+
+
+#2. Concatenating two strings using + operator 
+print(str1+" "+str2)
+
+
+#3. Finding the length of the string 
+s=input()
+print(len(s))
+
+
+#4. Extract a substring using string 
+s=input()
+print(s[0:5])
+
+
+#5. Searching in strings using index() 
+s="Hello"
+print(s.index('He'))
+
+
+#6. Matching a String Against a Regular Expression With matches() 
+import re
+pattern=r"^Hello world"
+string="Hello"
+match=re.match(pattern,string)
+if match:
+    print("matched")
+else:
+    print("not matched")
+
+    
+#7. Comparing strings  
+s1="hat"
+s2="Mat"
+if s1==s2:
+    print("Strings are equal")
+elif s1<s2:
+    print("s1 is greater")
+else:
+    print("s2 is greater")
+    
+    
+#8. startsWith(), endsWith() and compareTo() 
+s = "Python Programming"
+print(s.startswith("Python"))  
+print(s.endswith("ing")) 
+print((s > "Java"))
+
+
+#9. Trimming strings with strip() 
+s="       hello hi      "
+print(s.strip())
+
+
+#10. Replacing characters in strings with replace() 
+s="hello world"
+print(s.replace('o','%'))
+
+
+#11. Splitting strings with split() 
+s="Who are you"
+print(s.split())
+
+
+#12. Converting integer objects to Strings 
+num=234
+s=str(num)
+print(s,type(s))
+
+
+#13. Converting to uppercase and lowercase 
+s="Hi Guys "
+print(s.upper())
+print(s.lower())
