@@ -1,0 +1,104 @@
+#1. Create a class with PRIVATE fields, private method and a main method. Print the fields in main method. Call the private method in main method. 
+#Create a sub class and try to access the private fields and methods from sub class. '''
+class Parent:
+    def __init__(self):
+        self.__var="private variable"
+        
+    def __method(self):
+        print("private method")
+    
+    def method2(self):
+        self.__method()
+        print("getting private variable:",self.__var)
+class Child(Parent):
+    def access_private(self):
+        #This will give error
+        try:
+            print(self.__var)
+        except AttributeError:
+            print("cannot access private var in subclass")
+        
+        
+        try:
+            self.__method()
+        except AttributeError:
+            print("cannot access private method in subclass")            
+if __name__=="__main__":            
+    p=Parent()
+    p.method2()
+    
+    c=Child()
+    c.access_private()
+      
+    
+    
+#2. Create a class with PROTECTED fields and methods. Access these fields and methods 
+#from any other class in the same package.  
+#Also, Access the PROTECTED fields and methods from child class located in a differen30pt 
+#package 
+#Access the PROTECTED fields and methods from any class in different package 
+class First:
+    def __init__(self):
+        self._var="protected variable"
+        
+    def _method1(self):
+        print("protected method")
+#accessing protected var from another class in same module    
+class Second:
+    def access_protected(self):
+        obj=First()
+        print("accessing protected field",obj._var)
+        obj._method1()
+#accessing from child class
+class Child(First):
+    def access_protected_child(self):
+        print("accessing protected var in child class",self._var)
+        self._method1()
+#accessing from unrelated class
+class Diff_class:
+    def access_protected_diff_class(self):
+        obj=First()
+        print("From diff class",obj._var)
+        obj._method1()
+if __name__=="__main__": 
+    f=First()
+    print("from parent method:")
+    print(f._var)
+    f._method1()
+    
+    s=Second()
+    s.access_protected()
+    
+    c=Child()
+    c.access_protected_child()
+    
+    d=Diff_class()
+    d.access_protected_diff_class()
+    
+    
+
+#3. Create a class with PUBLIC fields and methods.  
+#Access the public methods and fields from any class in the same package or different 
+#package.
+class Parent:
+    def __init__(self):
+        self.var = "PUBLIC variable"
+
+    def method(self):
+        print("PUBLIC method")
+# Accessing Public Members from Another Class in the Same Module
+class Child:
+    def access_public(self):
+        obj = Parent()
+        print("\nAccessing Public Members from Another Class:")
+        print(obj.var)  # Accessing public variable
+        obj.method()  # Accessing public method
+# Main Method
+if __name__ == "__main__":
+    obj1 = Parent()
+    print("\nAccessing Public Members from Main Method:")
+    print(obj1.var)  # Direct access
+    obj1.method()  # Direct access
+
+    obj2 = Child()
+    obj2.access_public()  # Accessing from another class
