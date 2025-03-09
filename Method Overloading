@@ -1,0 +1,42 @@
+#1. Write two methods with the same name but different number of parameters of same type and call the methods
+ 
+#In Python, method overloading (same method name with different parameters) is not supported directly like in Java or C++
+#However, we can achieve similar functionality using default arguments or *args
+class Method_overloading:
+    def display(self, a, b=None):
+        if b != None:
+            print(f"Two parameters: {a}, {b}")
+        else:
+            print(f"One parameter: {a}")
+obj=Method_overloading()
+obj.display(1)         
+obj.display(1, 10) 
+
+
+#2. Write two methods with the same name but different number of parameters of different data type and call the methods
+
+#Python does not support traditional method overloading, we can achieve this using:
+#*args (Variable-length arguments)
+class MethodOverloading:
+    def display(self, *args):
+        print(f"Received parameters: {args}")
+obj = MethodOverloading()
+obj.display(5)           
+obj.display("Python")     
+obj.display(10, "Hello") 
+obj.display(3.27, 41)     
+
+
+#3. Write two methods with the same name and same number of parameters of same type  
+
+#Python does not allow multiple methods with the same signature
+#If we define two methods with the same name, the last-defined method will override the previous one.
+class Ex_Class:
+    def display(self, a, b):
+        if isinstance(a, int) and isinstance(b, int):
+            print(f"Sum: {a + b}")
+        else:
+            print(f"Concatenation: {str(a) + str(b)}")
+obj = Ex_Class()
+obj.display(45, 20)         
+obj.display("Sowmya", "Undamatla")  
