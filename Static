@@ -1,0 +1,31 @@
+#1.Define a static variable and access that through a class  
+class Salutation:
+    static_var = "Hello"
+print(Salutation.static_var)
+
+
+#2. Define a static variable and access that through a instance 
+class Course:
+    static_var = "Data Science"  
+obj = Course()
+print(obj.static_var)
+
+
+#3. Define a static variable and change within the instance 
+class Course:
+    static_var = "Data science"  
+obj = Course()
+obj.static_var = "Computerscience"
+print("Instance variable:", obj.static_var) 
+print("Class variable:", Course.static_var)  
+
+
+#4. Define a static variable and change within the class
+class Myclass:
+    static_var = "hello"
+    @classmethod
+    def change_static(cls, new):
+        cls.static_var = new 
+print("Before:", Myclass.static_var)
+Myclass.change_static("hii")
+print("After:", Myclass.static_var)
