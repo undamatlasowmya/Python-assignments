@@ -1,0 +1,101 @@
+#A, B and C are classes 
+#A is a super class. B is a sub class of A. C is a sub class of B. 
+#Create three methods in each class, 2 methods are specific to each class and third 
+#method (override method) should be in all three Classes A, B and C '''
+
+class A:
+    def method_a1(self):
+        print("class A method 1")
+    def method_a2(self):
+        print("class A method 2")
+    def method(self):
+        print("class A method overridden")
+    
+    
+class B(A):
+    def method_b1(self):
+        print("class B method 1")
+    def method_b2(self):
+        print("class B method 2")
+    def method(self):
+        print("class B method overridden")
+    
+    
+class C(B):
+    def method_c1(self):
+        print("class c method 1")
+    def method_c2(self):
+        print("class c method 2")
+    def method(self):
+        print("class c method overridden")
+
+
+
+#Create a class with main method. Create an object for each class A, B and C in main 
+#method and call every method of each class using its own object/instance. 
+
+
+if __name__=="__main__":
+    obj_a=A()
+    obj_b=B()
+    obj_c=C()
+    
+    obj_a.method_a1()
+    obj_a.method_a2()
+    obj_a.method()
+    
+    obj_b.method_a1()
+    obj_b.method_a2()
+    obj_b.method_b1()
+    obj_b.method_b2()
+    obj_b.method()
+    
+    obj_c.method_a1()
+    obj_c.method_a2()
+    obj_c.method_b1()
+    obj_c.method_b2()
+    obj_c.method_c1()
+    obj_c.method_c2()
+    obj_c.method()
+    
+#Call an overridden method with super class reference to B and C class’s objects 
+b=B()
+c=C()
+
+b.method()
+c.method()
+
+
+#Runtime Polymorphism with Data Members/Instance variables, Repeat the above 
+#process only for data members'''
+
+class A:
+    def __init__(self):
+        self.value = 10  
+
+class B(A):
+    def __init__(self):
+        super().__init__()
+        self.value = 20  
+
+class C(B):
+    def __init__(self):
+        super().__init__()
+        self.value = 30  
+
+# Creating objects
+obj_a = A()
+obj_b = B()
+obj_c = C()
+
+
+print("Value from obj_a:", obj_a.value)
+print("Value from obj_b:", obj_b.value)
+print("Value from obj_c:", obj_c.value)
+
+
+a_ref_b = B()  # Superclass reference to B
+a_ref_c = C()  # Superclass reference to C
+
+print("Value from a_ref_b (A reference to B):", a_ref_b.value)
+print("Value from a_ref_c (A reference to C):", a_ref_c.value)
