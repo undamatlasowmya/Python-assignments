@@ -1,0 +1,56 @@
+#1. Write a class with a default constructor, one argument constructor and two argument constructors. Instantiate the class to call all the constructors of that class from a main class 
+'''Python does not support multiple constructors directly like Java/C++, but we can achieve it using default values and *args:'''
+class MyClass:
+    def __init__(self, *args):
+        if len(args) == 0:
+            print("Default constructor called")
+        elif len(args) == 1:
+            print(f"One-argument constructor called. Value: {args[0]}")
+        elif len(args) == 2:
+            print(f"Two-argument constructor called. Values: {args[0]}, {args[1]}")
+obj1 = MyClass()         
+obj2 = MyClass(15)       
+obj3 = MyClass(15, 20)   
+
+
+#2. Call the constructors(both default and argument constructors) of super class from a child class
+class MyChildClass(MyClass):
+    def __init__(self, *args):
+        super().__init__(*args)  
+        print("Child class constructor called")
+# default constructor of MyClass from MyChildClass
+chi1 = MyChildClass()
+#argument constructor
+chi2 = MyChildClass(15)
+chi3 = MyChildClass(15, 20)
+
+
+#3. Apply private, public, protected and default access modifiers to the constructor 
+class Ex_Class:
+    def __init__(self):
+        print("public constructor")
+    def _protected_init(self):
+        print("Protected constructor")
+    def __private_init(self):
+        print("Private constructor")
+obj=Ex_Class()
+obj._protected_init()
+#obj.__private_init()  gives attribute error
+obj._Ex_Class__private_init()
+    
+    
+#4. Write a program which illustrates the concept of attributes of a constructor.
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name  
+        self._age = age  
+        self.__grade = grade  
+    def display(self):
+        print(f"Student Name: {self.name}")
+        print(f"Student Age: {self._age}")
+        print(f"Student Grade: {self.__grade}")
+obj = Student("Sowmya", 20, "A")
+print(obj.name)
+print(obj._age)
+print(obj._Student__grade) 
+obj.display()
