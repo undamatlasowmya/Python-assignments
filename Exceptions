@@ -1,0 +1,88 @@
+#1.Write a program to generate Arithmetic Exception without exception handling
+res=82/0 # This will cause a ZeroDivisionError (Arithmetic Exception)
+print(res)
+
+
+#2.Handle the Arithmetic exception using try-catch block
+try:
+    res=23/0
+except ZeroDivisionError as e:
+    print("error occurred:",e)
+    
+    
+#3.which throws exception, Call that method in main class without try block
+def throw_exception():
+    raise ValueError("This program contains an error")
+throw_exception()
+
+
+#4.Write a program with multiple catch blocks
+try:
+    n=int(input())
+    result=40/n
+except ZeroDivisionError:
+    print("cannot be divisible by zero")
+except ValueError:
+    print("invalid input ... enter again")
+except Exception as e:
+    print("Unexpected error occurred:",e)
+    
+    
+#5.Write a program to throw exception with your own message
+def vote_eligibility(age):
+    if age<18:
+        raise Exception("underaged...not eligible to vote")
+    print("eligible to vote")
+    
+    
+#6.Write a program to create your own exception
+class MyException(Exception):
+    def __init__(self,msg):
+        super().__init__(msg)
+#raising error
+raise MyException("This is my exception")
+
+
+#7.Write a program with finally block
+try:
+    res=12/0
+except ZeroDivisionError as e:
+    print("error occurred:",e)
+finally:
+    print("program completed successfully")
+
+    
+#8.Write a program to generate Arithmetic Exception
+# This will cause ZeroDivisionError
+print(170 / 0)
+
+
+#9.Write a program to generate FileNotFoundException
+try:
+    with open("hiiiiii.txt", 'r') as f:
+        res = f.read()
+        print(res)
+except FileNotFoundError as e:
+    print("File Not Found Error:", e)
+
+
+#10.Write a program to generate ClassNotFoundException
+import world
+#ClassNotFoundException exists in Java, but in Python, importing a nonexistent module raises ModuleNotFoundError.
+
+
+#11. Write a program to generate IOException
+try:
+    with open("hiiii.txt", "r") as file:
+        res = file.read()
+except IOError as e:
+    print("IO Exception Caught:", e)
+
+    
+#12. Write a program to generate NoSuchFieldException
+class SampleClass:
+    def __init__(self):
+        self.name="Python"
+obj=SampleClass()
+print(obj.age)
+#NoSuchFieldException in java is similar to AttributeError in python
